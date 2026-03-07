@@ -1,0 +1,11 @@
+<script lang="ts">
+  let { fill = "currentColor" } = $props<{ fill?: string }>();
+</script>
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  ><path class={fill} d="M8.59 16.59L13.17 12L8.59 7.41L10 6l6 6l-6 6z" /></svg
+>

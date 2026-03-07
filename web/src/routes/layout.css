@@ -10,8 +10,11 @@
 
 @theme {
   --color-primary-500: #eab308;
+  --color-primary-700: #f8dcac;
   --color-primary-950: #fefaf4;
   --color-secondary-800: #2a2415;
+  --color-danger: #ef4444;
+  --color-success: #13ec37;
 }
 
 h1 {

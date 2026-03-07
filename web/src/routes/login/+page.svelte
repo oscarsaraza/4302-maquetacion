@@ -4,7 +4,7 @@
   import TextButton from "$lib/components/text-button.svelte";
 </script>
 
-<main class="min-h-screen flex flex-col justify-center">
+<main class="min-h-screen flex flex-col gap-8 p-8 max-w-7xl mx-auto">
   <div class="flex items-center justify-center w-full mx-auto">
     <div
       class="bg-secondary-800 w-lg rounded-3xl p-12 flex flex-col gap-8 items-center"
