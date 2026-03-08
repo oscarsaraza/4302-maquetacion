@@ -1,7 +1,7 @@
 <div
   class="flex flex-row justify-end w-full gap-12 text-neutral-300 font-medium z-10 relative"
 >
-  <a href="/inicio" class="w-32 text-center hover:text-white transition-colors"
+  <a href="/" class="w-32 text-center hover:text-white transition-colors"
     >Inicio</a
   >
   <a
