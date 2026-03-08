@@ -56,7 +56,7 @@
 
   function updateField(alarmId, field, value) {
     alarms = alarms.map((a) =>
-      a.id === alarmId ? { ...a, [field]: value } : a
+      a.id === alarmId ? { ...a, [field]: value } : a,
     );
   }
 
@@ -90,7 +90,7 @@
   <Nav />
 
   <div class="flex items-center justify-start gap-4">
-    <Sun size="small" fill="fill-primary-500"></Sun>
+    <Sun size="big" fill="fill-primary-500"></Sun>
     <div>
       <h1>
         Reglas de <span class="text-primary-500">activación</span> de respaldo
@@ -101,16 +101,14 @@
     </div>
   </div>
 
-  <div class="flex flex-col gap-8">
+  <div class="flex flex-col gap-8 w-full max-w-3xl mx-auto">
     {#each alarms as alarm (alarm.id)}
       <div class="bg-secondary-800 rounded-3xl p-8 flex flex-col gap-6">
         <!-- Time + Days row -->
         <div class="flex flex-wrap items-start justify-between gap-6">
           <div>
             <div class="flex items-baseline gap-2">
-              <span class="text-5xl font-light text-primary-950"
-                >{alarm.time}</span
-              >
+              <span class="text-5xl text-primary-950">{alarm.time}</span>
               <span class="text-xl text-primary-500">{alarm.period}</span>
             </div>
             <p class="text-sm text-[#B3ACA0] mt-1">{alarm.label}</p>
@@ -136,8 +134,7 @@
         <!-- Settings grid: Row 1 -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div class="flex flex-col gap-1">
-            <label class="text-xs text-[#B3ACA0]"
-              >Dispositivo de respaldo</label
+            <label class="text-xs text-[#B3ACA0]">Dispositivo de respaldo</label
             >
             <select
               class="bg-[#3A2E07] text-primary-950 text-sm rounded-xl px-4 py-3 border border-[#4a3d1a] focus:outline-none focus:border-primary-500 appearance-none"
@@ -162,7 +159,7 @@
               >
                 −
               </button>
-              <span class="text-primary-950 text-lg min-w-[4rem] text-center"
+              <span class="text-primary-950 text-sm min-w-16 text-center"
                 >{alarm.tiempoEspera} min</span
               >
               <button
@@ -204,7 +201,7 @@
               >
                 −
               </button>
-              <span class="text-primary-950 text-lg min-w-[4rem] text-center"
+              <span class="text-primary-950 text-sm min-w-16 text-center"
                 >{alarm.maxPosponer} veces</span
               >
               <button
@@ -223,7 +220,7 @@
   <!-- FAB -->
   <div class="flex justify-center">
     <button
-      class="w-14 h-14 rounded-full bg-primary-500 text-secondary-800 text-3xl flex items-center justify-center shadow-lg hover:bg-primary-700 transition-colors"
+      class="w-14 h-14 rounded-full bg-primary-500 text-secondary-800 text-3xl/tight flex items-center justify-center shadow-lg hover:bg-primary-700 transition-colors cursor-pointer"
       onclick={addAlarm}
     >
       +

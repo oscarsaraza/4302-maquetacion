@@ -1,10 +1,11 @@
 <script>
+  import Smartphone from "$lib/components/icons/smartphone.svelte";
   import Nav from "$lib/components/nav.svelte";
 
   let contacts = $state([
-    { id: 1, name: "Sarah Jerónimo", phone: "+1 (555) 123-01" },
-    { id: 2, name: "Sarah Jerónimo", phone: "+1 (555) 123-01" },
-    { id: 3, name: "Sarah Jerónimo", phone: "+1 (555) 123-01" },
+    { id: 1, name: "Andrés Arbelaez", phone: "+57 (310) 1231212" },
+    { id: 2, name: "Camila Camargo", phone: "+57 (300) 9998877" },
+    { id: 3, name: "Susana Suarez", phone: "+57 (320) 5550055" },
   ]);
 
   let showForm = $state(false);
@@ -65,8 +66,8 @@
         </h1>
 
         <p class="text-sm text-[#B3ACA0] text-center leading-relaxed">
-          ¿A quién deberíamos llamar si no despiertas?
-          Contactaremos con ellos si fallas tus alarmas críticas.
+          ¿A quién deberíamos llamar si no despiertas? Contactaremos con ellos
+          si fallas tus alarmas críticas.
         </p>
 
         <div class="w-full flex flex-col gap-4">
@@ -93,9 +94,9 @@
         </div>
 
         <p class="text-xs text-[#B3ACA0] text-center leading-relaxed">
-          Tu nuevo contacto recibirá un mensaje con la solicitud de vincularse como tu
-          contacto de apoyo. Una vez aprobada, tu contacto estará disponible en la
-          sección de configuración de reglas de respaldo.
+          Tu nuevo contacto recibirá un mensaje con la solicitud de vincularse
+          como tu contacto de apoyo. Una vez aprobada, tu contacto estará
+          disponible en la sección de configuración de reglas de respaldo.
         </p>
 
         <div class="flex gap-4 w-full">
@@ -117,36 +118,22 @@
   {:else}
     <!-- Contact list -->
     <div class="flex items-center justify-start gap-4">
-      <!-- Phone icon -->
-      <div
-        class="w-12 h-12 rounded-xl bg-primary-500 flex items-center justify-center"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="#2a2415"
-        >
-          <path
-            d="M16 1H8C6.34 1 5 2.34 5 4v16c0 1.66 1.34 3 3 3h8c1.66 0 3-1.34 3-3V4c0-1.66-1.34-3-3-3m1 17H7V4h10zM12 21a1 1 0 1 1 0-2a1 1 0 0 1 0 2"
-          />
-        </svg>
-      </div>
+      <Smartphone size="big" fill="fill-primary-500"></Smartphone>
       <div>
         <h1>
-          Lista de <span class="text-primary-500">Contactos</span> de respaldo
+          Lista de <span class="text-primary-500">contactos</span> de respaldo
         </h1>
         <p class="text-sm text-[#B3ACA0] mt-1">
-          Esta es la lista de contactos que podrán detectar tus alarmas de respaldo
+          Esta es la lista de contactos que podrán detectar tus alarmas de
+          respaldo
         </p>
       </div>
     </div>
 
-    <div class="flex flex-col gap-4">
+    <div class="flex flex-col gap-4 w-full max-w-3xl mx-auto">
       {#each contacts as contact (contact.id)}
         <div
-          class="bg-secondary-800 rounded-2xl px-8 py-5 flex items-center justify-between"
+          class="w-full bg-secondary-800 rounded-2xl px-8 py-5 flex items-center justify-between"
         >
           <div class="flex items-center gap-4">
             <div
@@ -170,9 +157,9 @@
     </div>
 
     <!-- FAB -->
-    <div class="fixed bottom-8 left-1/2 -translate-x-1/2">
+    <div class="flex justify-center">
       <button
-        class="w-14 h-14 rounded-full bg-primary-500 text-secondary-800 text-3xl flex items-center justify-center shadow-lg hover:bg-primary-700 transition-colors"
+        class="w-14 h-14 rounded-full bg-primary-500 text-secondary-800 text-3xl/tight flex items-center justify-center shadow-lg hover:bg-primary-700 transition-colors cursor-pointer"
         onclick={() => (showForm = true)}
       >
         +

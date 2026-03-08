@@ -27,24 +27,24 @@
     { id: 14, type: "day", number: 11, icon: "check" },
     { id: 15, type: "day", number: 12, icon: "phone" },
     { id: 16, type: "day", number: 13, icon: "phone" },
-    { id: 17, type: "day", number: 14, icon: "phone" },
+    { id: 17, type: "day", number: 14, icon: "clock" },
     { id: 18, type: "day", number: 15, icon: "phone" },
     { id: 19, type: "day", number: 16, icon: "check" },
-    { id: 20, type: "day", number: 17, icon: "phone" },
-    { id: 21, type: "day", number: 18, icon: "phone" },
+    { id: 20, type: "day", number: 17, icon: "check" },
+    { id: 21, type: "day", number: 18, icon: "check" },
     { id: 22, type: "day", number: 19, icon: "check" },
     { id: 23, type: "day", number: 20, icon: "check" },
-    { id: 24, type: "day", number: 21, icon: "phone" },
-    { id: 25, type: "day", number: 22, icon: "phone" },
-    { id: 26, type: "day", number: 23, icon: "phone" },
-    { id: 27, type: "day", number: 24, icon: "phone" },
-    { id: 28, type: "day", number: 25, icon: "phone" },
-    { id: 29, type: "day", number: 26, icon: "phone" },
-    { id: 30, type: "day", number: 27, icon: "phone" },
-    { id: 31, type: "day", number: 28, icon: "check" },
-    { id: 32, type: "day", number: 29, icon: "phone" },
+    { id: 24, type: "day", number: 21, icon: "check" },
+    { id: 25, type: "day", number: 22, icon: "check" },
+    { id: 26, type: "day", number: 23, icon: "check" },
+    { id: 27, type: "day", number: 24, icon: "check" },
+    { id: 28, type: "day", number: 25, icon: "check" },
+    { id: 29, type: "day", number: 26, icon: "check" },
+    { id: 30, type: "day", number: 27, icon: "check" },
+    { id: 31, type: "day", number: 28, icon: "clock" },
+    { id: 32, type: "day", number: 29, icon: "clock" },
     { id: 33, type: "day", number: 30, icon: "phone" },
-    { id: 34, type: "day", number: 31, icon: "phone" },
+    { id: 34, type: "day", number: 31, icon: "clock" },
     { id: 35, type: "empty" },
   ];
 </script>
@@ -60,7 +60,7 @@
   </div>
 
   <div class="flex flex-row flex-wrap justify-around gap-4">
-    <div class="bg-secondary-800 rounded-3xl p-6 min-w-96 flex flex-col gap-6">
+    <div class="bg-secondary-800 rounded-3xl p-6 min-w-96 flex flex-col gap-3">
       <div class="flex flex-row justify-between">
         <Clock fill="fill-primary-500"></Clock>
         <div class="text-primary-700">Este mes</div>
@@ -73,7 +73,7 @@
         <span>que el mes anterior</span>
       </div>
     </div>
-    <div class="bg-secondary-800 rounded-3xl p-6 min-w-96 flex flex-col gap-6">
+    <div class="bg-secondary-800 rounded-3xl p-6 min-w-96 flex flex-col gap-3">
       <div class="flex flex-row justify-between">
         <Check fill="fill-primary-500"></Check>
         <div class="text-primary-700">Actual</div>
@@ -86,7 +86,7 @@
         <span>que el mes anterior</span>
       </div>
     </div>
-    <div class="bg-secondary-800 rounded-3xl p-6 min-w-96 flex flex-col gap-6">
+    <div class="bg-secondary-800 rounded-3xl p-6 min-w-96 flex flex-col gap-3">
       <div class="flex flex-row justify-between">
         <Walk fill="fill-primary-500"></Walk>
         <div class="text-primary-700">7 días</div>
