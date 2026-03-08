@@ -42,34 +42,38 @@
       </div>
 
       <h1 class="text-center">
-        Vincular un <span class="text-primary-500">dispositivo</span>
+        <span class="text-primary-500">Vincular</span> un dispositivo
       </h1>
 
       <p class="text-sm text-[#B3ACA0] text-center leading-relaxed">
-        Al vincular tu dispositivo como respaldo al reloj de un amigo/a, estarás
-        configurado para recibir alertas de verificación. Desde tu teléfono podrás
-        monitorear el estado de las alarmas con las que tengas un vínculo directo.
+        Introduce una dirección de correo para recibir un enlace de configuración
+        rápida. Utiliza esta opción de vinculación cuando no tengas el dispositivo
+        a la mano.
       </p>
 
       {#if !emailSent}
         <div class="w-full flex flex-col gap-4">
           <div class="flex flex-col gap-1">
             <label class="text-xs text-[#B3ACA0]"
-              >Envía un código parecido</label
+              >Dirección de correo electrónico</label
             >
-            <input
-              type="email"
-              bind:value={email}
-              placeholder="correo@ejemplo.com"
-              class="bg-[#3A2E07] text-primary-950 text-sm rounded-xl px-4 py-3 border border-[#4a3d1a] focus:outline-none focus:border-primary-500 w-full"
-            />
+            <div class="flex items-center gap-3">
+              <input
+                type="email"
+                bind:value={email}
+                placeholder="correo@ejemplo.com"
+                class="bg-[#3A2E07] text-primary-950 text-sm rounded-xl px-4 py-3 border border-[#4a3d1a] focus:outline-none focus:border-primary-500 flex-1 placeholder:text-[#6b6354]"
+              />
+              <button
+                class="w-12 h-12 rounded-full bg-primary-500 text-secondary-800 flex items-center justify-center hover:bg-primary-700 transition-colors shrink-0"
+                onclick={handleSend}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M2.01 21L23 12L2.01 3L2 10l15 2l-15 2z"/>
+                </svg>
+              </button>
+            </div>
           </div>
-          <button
-            class="bg-primary-500 text-secondary-800 font-bold py-3 rounded-xl hover:bg-primary-700 transition-colors"
-            onclick={handleSend}
-          >
-            Enviar código
-          </button>
         </div>
       {:else}
         <div class="flex flex-col items-center gap-4">
@@ -98,7 +102,7 @@
           class="text-xs text-primary-500 hover:text-primary-700 transition-colors"
           onclick={handleRetry}
         >
-          Reintenta
+          Reintentar
         </button>
       </div>
     </div>

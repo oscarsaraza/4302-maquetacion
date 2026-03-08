@@ -1,7 +1,6 @@
 <script>
   import Nav from "$lib/components/nav.svelte";
   import Sun from "$lib/components/icons/sun.svelte";
-  import ArrowDown from "$lib/components/icons/arrow-down.svelte";
 
   let alarms = $state([
     {
@@ -10,11 +9,10 @@
       period: "AM",
       label: "Alarma matutina",
       days: [true, true, true, true, true, true, true],
-      disposicion: "Todas del Cuerpo",
-      tiempoEspera: "5 min",
-      contactoRed: "Acción a preparar ante la transferencia",
-      masterActivado: true,
-      maxSnooze: 3,
+      dispositivo: "Echo Dot (Cocina)",
+      tiempoEspera: 5,
+      contactoRed: "Mamá (Llamada)",
+      maxPosponer: 3,
     },
     {
       id: 2,
@@ -22,29 +20,27 @@
       period: "AM",
       label: "Alarma de respaldo",
       days: [true, true, true, true, true, false, false],
-      disposicion: "Torso",
-      tiempoEspera: "10 min",
-      contactoRed: "Notificación al contacto de respaldo",
-      masterActivado: true,
-      maxSnooze: 1,
+      dispositivo: "Tablet",
+      tiempoEspera: 10,
+      contactoRed: "Ninguno",
+      maxPosponer: 1,
     },
   ]);
 
   const DAY_LABELS = ["L", "M", "M", "J", "V", "S", "D"];
 
-  const DISPOSICION_OPTIONS = [
-    "Todas del Cuerpo",
-    "Torso",
-    "Extremidades",
-    "Cabeza",
+  const DISPOSITIVO_OPTIONS = [
+    "Echo Dot (Cocina)",
+    "Tablet",
+    "Altavoz (Sala)",
+    "Smart TV",
   ];
 
-  const TIEMPO_ESPERA_OPTIONS = ["5 min", "10 min", "15 min", "30 min"];
-
   const CONTACTO_OPTIONS = [
-    "Acción a preparar ante la transferencia",
-    "Notificación al contacto de respaldo",
-    "Activar protocolo de emergencia",
+    "Mamá (Llamada)",
+    "Papá (Llamada)",
+    "Sarah Jerónimo",
+    "Ninguno",
   ];
 
   function toggleDay(alarmId, dayIndex) {
@@ -64,11 +60,11 @@
     );
   }
 
-  function adjustSnooze(alarmId, delta) {
+  function adjustStepper(alarmId, field, delta, min = 1) {
     alarms = alarms.map((a) => {
       if (a.id === alarmId) {
-        const newVal = Math.max(1, a.maxSnooze + delta);
-        return { ...a, maxSnooze: newVal };
+        const newVal = Math.max(min, a[field] + delta);
+        return { ...a, [field]: newVal };
       }
       return a;
     });
@@ -81,11 +77,10 @@
       period: "AM",
       label: "Nueva alarma",
       days: [true, true, true, true, true, false, false],
-      disposicion: "Todas del Cuerpo",
-      tiempoEspera: "5 min",
-      contactoRed: "Acción a preparar ante la transferencia",
-      masterActivado: true,
-      maxSnooze: 1,
+      dispositivo: "Echo Dot (Cocina)",
+      tiempoEspera: 5,
+      contactoRed: "Mamá (Llamada)",
+      maxPosponer: 1,
     };
     alarms = [...alarms, newAlarm];
   }
@@ -138,7 +133,7 @@
           </div>
         </div>
 
-        <!-- Settings grid -->
+        <!-- Settings grid: Row 1 -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div class="flex flex-col gap-1">
             <label class="text-xs text-[#B3ACA0]"
@@ -146,30 +141,42 @@
             >
             <select
               class="bg-[#3A2E07] text-primary-950 text-sm rounded-xl px-4 py-3 border border-[#4a3d1a] focus:outline-none focus:border-primary-500 appearance-none"
-              value={alarm.disposicion}
+              value={alarm.dispositivo}
               onchange={(e) =>
-                updateField(alarm.id, "disposicion", e.target.value)}
+                updateField(alarm.id, "dispositivo", e.target.value)}
             >
-              {#each DISPOSICION_OPTIONS as opt}
+              <option value="" disabled>Seleccionar dispositivo</option>
+              {#each DISPOSITIVO_OPTIONS as opt}
                 <option value={opt}>{opt}</option>
               {/each}
             </select>
           </div>
           <div class="flex flex-col gap-1">
             <label class="text-xs text-[#B3ACA0]"
-              >Tiempo de espera antes de la transferencia</label
+              >Tiempo de espera antes de la activación</label
             >
-            <select
-              class="bg-[#3A2E07] text-primary-950 text-sm rounded-xl px-4 py-3 border border-[#4a3d1a] focus:outline-none focus:border-primary-500 appearance-none"
-              value={alarm.tiempoEspera}
-              onchange={(e) =>
-                updateField(alarm.id, "tiempoEspera", e.target.value)}
-            >
-              {#each TIEMPO_ESPERA_OPTIONS as opt}
-                <option value={opt}>{opt}</option>
-              {/each}
-            </select>
+            <div class="flex items-center gap-3">
+              <button
+                class="w-10 h-10 rounded-xl bg-[#3A2E07] border border-[#4a3d1a] text-primary-500 text-xl flex items-center justify-center hover:bg-[#4a3d1a] transition-colors"
+                onclick={() => adjustStepper(alarm.id, "tiempoEspera", -5, 5)}
+              >
+                −
+              </button>
+              <span class="text-primary-950 text-lg min-w-[4rem] text-center"
+                >{alarm.tiempoEspera} min</span
+              >
+              <button
+                class="w-10 h-10 rounded-xl bg-[#3A2E07] border border-[#4a3d1a] text-primary-500 text-xl flex items-center justify-center hover:bg-[#4a3d1a] transition-colors"
+                onclick={() => adjustStepper(alarm.id, "tiempoEspera", 5, 5)}
+              >
+                +
+              </button>
+            </div>
           </div>
+        </div>
+
+        <!-- Settings grid: Row 2 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div class="flex flex-col gap-1">
             <label class="text-xs text-[#B3ACA0]"
               >Contacto de red de apoyo</label
@@ -180,6 +187,7 @@
               onchange={(e) =>
                 updateField(alarm.id, "contactoRed", e.target.value)}
             >
+              <option value="" disabled>Seleccionar contacto</option>
               {#each CONTACTO_OPTIONS as opt}
                 <option value={opt}>{opt}</option>
               {/each}
@@ -187,42 +195,21 @@
           </div>
           <div class="flex flex-col gap-1">
             <label class="text-xs text-[#B3ACA0]"
-              >Acción a preparar ante la transferencia</label
+              >Número de posponer antes de contactar</label
             >
-            <select
-              class="bg-[#3A2E07] text-primary-950 text-sm rounded-xl px-4 py-3 border border-[#4a3d1a] focus:outline-none focus:border-primary-500 appearance-none"
-            >
-              <option>Alarmar a preparar ante la transferencia</option>
-            </select>
-          </div>
-        </div>
-
-        <!-- Master + Snooze row -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div class="flex flex-col gap-1">
-            <label class="text-xs text-[#B3ACA0]">Master Activado</label>
-            <select
-              class="bg-[#3A2E07] text-primary-950 text-sm rounded-xl px-4 py-3 border border-[#4a3d1a] focus:outline-none focus:border-primary-500 appearance-none"
-            >
-              <option>Activado</option>
-              <option>Desactivado</option>
-            </select>
-          </div>
-          <div class="flex flex-col gap-1">
-            <label class="text-xs text-[#B3ACA0]">Máximo de repeticiones</label>
             <div class="flex items-center gap-3">
               <button
                 class="w-10 h-10 rounded-xl bg-[#3A2E07] border border-[#4a3d1a] text-primary-500 text-xl flex items-center justify-center hover:bg-[#4a3d1a] transition-colors"
-                onclick={() => adjustSnooze(alarm.id, -1)}
+                onclick={() => adjustStepper(alarm.id, "maxPosponer", -1, 1)}
               >
                 −
               </button>
-              <span class="text-primary-950 text-lg min-w-[3rem] text-center"
-                >{alarm.maxSnooze} veces</span
+              <span class="text-primary-950 text-lg min-w-[4rem] text-center"
+                >{alarm.maxPosponer} veces</span
               >
               <button
                 class="w-10 h-10 rounded-xl bg-[#3A2E07] border border-[#4a3d1a] text-primary-500 text-xl flex items-center justify-center hover:bg-[#4a3d1a] transition-colors"
-                onclick={() => adjustSnooze(alarm.id, 1)}
+                onclick={() => adjustStepper(alarm.id, "maxPosponer", 1, 1)}
               >
                 +
               </button>

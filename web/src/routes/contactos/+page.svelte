@@ -65,8 +65,8 @@
         </h1>
 
         <p class="text-sm text-[#B3ACA0] text-center leading-relaxed">
-          ¿A quién deberíamos alertar si no te escuchamos?
-          Completando este paso te añadirás al listado de contactos.
+          ¿A quién deberíamos llamar si no despiertas?
+          Contactaremos con ellos si fallas tus alarmas críticas.
         </p>
 
         <div class="w-full flex flex-col gap-4">
@@ -77,8 +77,8 @@
             <input
               type="text"
               bind:value={newName}
-              placeholder="Nombre completo"
-              class="bg-[#3A2E07] text-primary-950 text-sm rounded-xl px-4 py-3 border border-[#4a3d1a] focus:outline-none focus:border-primary-500 w-full"
+              placeholder="Ej: María García López"
+              class="bg-[#3A2E07] text-primary-950 text-sm rounded-xl px-4 py-3 border border-[#4a3d1a] focus:outline-none focus:border-primary-500 w-full placeholder:text-[#6b6354]"
             />
           </div>
           <div class="flex flex-col gap-1">
@@ -86,8 +86,8 @@
             <input
               type="tel"
               bind:value={newPhone}
-              placeholder="+1 (555) 000-00"
-              class="bg-[#3A2E07] text-primary-950 text-sm rounded-xl px-4 py-3 border border-[#4a3d1a] focus:outline-none focus:border-primary-500 w-full"
+              placeholder="Ej: +1 (555) 000-00"
+              class="bg-[#3A2E07] text-primary-950 text-sm rounded-xl px-4 py-3 border border-[#4a3d1a] focus:outline-none focus:border-primary-500 w-full placeholder:text-[#6b6354]"
             />
           </div>
         </div>
