@@ -94,7 +94,7 @@
 
         <p class="text-xs text-[#B3ACA0] text-center leading-relaxed">
           Tu nuevo contacto recibirá un mensaje con la solicitud de vincularse como tu
-          contacto de apoyo. Una vez aceptada, tu contacto recibirá descuento en la
+          contacto de apoyo. Una vez aprobada, tu contacto estará disponible en la
           sección de configuración de reglas de respaldo.
         </p>
 
@@ -109,7 +109,7 @@
             class="flex-1 bg-primary-500 text-secondary-800 font-bold py-3 rounded-xl hover:bg-primary-700 transition-colors"
             onclick={handleAdd}
           >
-            Enviar
+            Guardar
           </button>
         </div>
       </div>
