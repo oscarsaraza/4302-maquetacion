@@ -142,7 +142,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div class="flex flex-col gap-1">
             <label class="text-xs text-[#B3ACA0]"
-              >Disposición de respaldo</label
+              >Dispositivo de respaldo</label
             >
             <select
               class="bg-[#3A2E07] text-primary-950 text-sm rounded-xl px-4 py-3 border border-[#4a3d1a] focus:outline-none focus:border-primary-500 appearance-none"
