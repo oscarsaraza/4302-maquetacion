@@ -113,7 +113,11 @@ export default function HomeScreen({ navigation }) {
       </ScrollView>
 
       <View style={[styles.bottomBar, { paddingBottom: insets.bottom + 8 }]}>
-        <Text style={styles.devicesText}>Mis dispositivos</Text>
+        <Text style={styles.devicesText}
+          onPress={() =>
+            navigation.navigate('Devices')
+          }
+        >Mis dispositivos</Text>
       </View>
 
       <TouchableOpacity

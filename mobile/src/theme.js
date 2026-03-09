@@ -17,4 +17,12 @@ export const colors = {
   inputBackground: '#3A3828',
   border: '#4A4735',
   fab: '#F5C842',
+
+  primary0: "#000000",
+  primary10: "#3A2E07",
+  primary50: "#F4C025",
+  secondary50: "#2D2616",
+  secondary80: "#493F22",
+  primaryGray50: "#8c8c8c",
+  success: "#0A7A24",
 };
