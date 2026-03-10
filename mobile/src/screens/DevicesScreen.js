@@ -76,7 +76,12 @@ export default function DevicesScreen({ navigation }) {
       <View style={styles.spacer} />
 
       <TouchableOpacity style={styles.primaryButton}>
-        <Text style={styles.primaryButtonText}>Vincular como apoyo</Text>
+        <Text
+          style={styles.primaryButtonText}
+          onPress={() => navigation.navigate("LinkCompanion")}
+        >
+          Vincular como apoyo
+        </Text>
         <Feather name="link" size={22} color={colors.primary0} />
       </TouchableOpacity>
     </View>
