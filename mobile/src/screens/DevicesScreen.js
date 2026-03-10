@@ -14,7 +14,15 @@ export default function DevicesScreen({ navigation }) {
   const insets = useSafeAreaInsets();
 
   return (
-    <View style={styles.container}>
+    <View
+      style={[
+        styles.container,
+        {
+          paddingBottom: Math.max(insets.bottom, 20),
+          paddingTop: Math.max(insets.top, 20),
+        },
+      ]}
+    >
       <ScrollView contentContainerStyle={[styles.content]}>
         <View style={styles.header}>
           <TouchableOpacity onPress={() => navigation?.goBack?.()}>
@@ -60,28 +68,25 @@ export default function DevicesScreen({ navigation }) {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity activeOpacity={0.6} style={styles.addCard}>
+        <TouchableOpacity
+          activeOpacity={0.6}
+          style={styles.addCard}
+          onPress={() => navigation.navigate("LinkDevice")}
+        >
           <View style={styles.addIconCircle}>
             <Feather name="plus" size={16} color={colors.primaryGray50} />
           </View>
-          <Text
-            style={styles.addCardText}
-            onPress={() => navigation.navigate("LinkDevice")}
-          >
-            Agregar dispositivo secundario
-          </Text>
+          <Text style={styles.addCardText}>Agregar dispositivo secundario</Text>
         </TouchableOpacity>
       </ScrollView>
 
       <View style={styles.spacer} />
 
-      <TouchableOpacity style={styles.primaryButton}>
-        <Text
-          style={styles.primaryButtonText}
-          onPress={() => navigation.navigate("LinkCompanion")}
-        >
-          Vincular como apoyo
-        </Text>
+      <TouchableOpacity
+        style={styles.primaryButton}
+        onPress={() => navigation.navigate("LinkCompanion")}
+      >
+        <Text style={styles.primaryButtonText}>Vincular como apoyo</Text>
         <Feather name="link" size={22} color={colors.primary0} />
       </TouchableOpacity>
     </View>
@@ -95,7 +100,6 @@ const styles = StyleSheet.create({
   },
   content: {
     padding: 20,
-    paddingTop: 60,
   },
   header: {
     flexDirection: "row",

@@ -39,7 +39,15 @@ export default function LinkDeviceScreen({ navigation }) {
   }, [translateY]);
 
   return (
-    <View style={[styles.container, { paddingTop: insets.top }]}>
+    <View
+      style={[
+        styles.container,
+        {
+          paddingBottom: Math.max(insets.bottom, 20),
+          paddingTop: Math.max(insets.top, 20),
+        },
+      ]}
+    >
       <View style={styles.headerTop}>
         <TouchableOpacity onPress={() => navigation?.goBack?.()}>
           <Text style={styles.headerCancelText}>Cancelar</Text>
