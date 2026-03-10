@@ -64,7 +64,12 @@ export default function DevicesScreen({ navigation }) {
           <View style={styles.addIconCircle}>
             <Feather name="plus" size={16} color={colors.primaryGray50} />
           </View>
-          <Text style={styles.addCardText}>Agregar dispositivo secundario</Text>
+          <Text
+            style={styles.addCardText}
+            onPress={() => navigation.navigate("LinkDevice")}
+          >
+            Agregar dispositivo secundario
+          </Text>
         </TouchableOpacity>
       </ScrollView>
 

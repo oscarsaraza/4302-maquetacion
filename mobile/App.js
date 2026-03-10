@@ -6,6 +6,7 @@ import { AlarmProvider } from './src/context/AlarmContext';
 import HomeScreen from './src/screens/HomeScreen';
 import AlarmFormScreen from './src/screens/AlarmFormScreen';
 import DevicesScreen from './src/screens/DevicesScreen';
+import LinkDeviceScreen from './src/screens/LinkDeviceScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -18,6 +19,7 @@ export default function App() {
             <Stack.Screen name="Home" component={HomeScreen} />
             <Stack.Screen name="AlarmForm" component={AlarmFormScreen} />
             <Stack.Screen name="Devices" component={DevicesScreen} />
+            <Stack.Screen name="LinkDevice" component={LinkDeviceScreen} />
           </Stack.Navigator>
         </NavigationContainer>
       </AlarmProvider>

@@ -45,6 +45,7 @@ mobile/
     │   ├── HomeScreen.js         # Main screen with alarm list
     │   └── AlarmFormScreen.js    # Create/edit alarm
     │   └── DevicesScreen.js      # Devices screen
+    │   └── LinkDeviceScreen.js   # Link device screen
     ├── data.js                   # Initial mock data
     └── theme.js                  # Color palette
 ```
