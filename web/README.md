@@ -1,42 +1,36 @@
-# sv
+# 4302 - Web
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Este es el proyecto web de **Mejoramiento de Experiencia de Usuario**. Sigue estas instrucciones para ejecutar el proyecto localmente después de haber clonado el repositorio.
 
-## Creating a project
+## Requisitos
 
-If you're seeing this, you've probably already done this step. Congrats!
+- [Node.js](https://nodejs.org/) (versión 18 o superior recomendada)
+- [pnpm](https://pnpm.io/) (gestor de paquetes recomendado)
 
-```sh
-# create a new project
-npx sv create my-app
-```
+## Configuración y Ejecución
 
-To recreate this project with the same configuration:
+1. **Navegar a la carpeta del proyecto:**
 
-```sh
-# recreate this project
-pnpm dlx sv@0.12.4 create --template minimal --types ts --add tailwindcss="plugins:typography" --install pnpm .
-```
+   ```bash
+   cd web
+   ```
 
-## Developing
+2. **Instalar dependencias:**
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+   ```bash
+   pnpm install
+   ```
 
-```sh
-npm run dev
+3. **Iniciar servidor de desarrollo:**
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+   ```bash
+   pnpm dev
+   ```
 
-## Building
+   El proyecto estará disponible en [http://localhost:5173](http://localhost:5173).
 
-To create a production version of your app:
+## Otros Comandos
 
-```sh
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+- **Construcción para producción:** `pnpm build`
+- **Previsualizar producción:** `pnpm preview`
+- **Verificación de tipos:** `pnpm check`
